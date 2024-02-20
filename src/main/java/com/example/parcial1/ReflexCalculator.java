@@ -17,10 +17,16 @@ public class ReflexCalculator {
         Class c = Math.class;
         String result = "";
 
-        String[] elements = commands.split("(");
+        String[] elements = commands.split("\\(");
         String operation = elements[0];
-        String parameters = elements[1].split(")")[0];
+        String parameters = elements[1].split("\\)")[0];
         String[] numbers = parameters.split(",");
+
+        /* System.out.println(operation);
+        for (String n : numbers) {
+            System.out.println(n);
+        }
+        */
 
         if (operation != "qck") {
             Method m = c.getMethod(operation, Double.TYPE);
